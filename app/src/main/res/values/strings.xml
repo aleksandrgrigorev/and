@@ -2,4 +2,5 @@
     <string name="app_name">and</string>
     <string name="hello">Hello</string>
     <string name="andersen">Andersen</string>
+    <string name="input_text">input text</string>
 </resources>

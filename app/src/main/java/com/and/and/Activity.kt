@@ -10,7 +10,7 @@ class Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, FirstFragment())
+                .replace(R.id.container, SecondFragment())
                 .commitNow()
         }
     }
