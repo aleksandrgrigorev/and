@@ -1,5 +1,6 @@
 package com.and.and
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -27,9 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             it.isChecked = true
+            val intent = Intent(this@MainActivity, ViewPagerActivity::class.java)
 
             when (it.itemId) {
-                R.id.menu_lesson_1 -> replaceFragment(ViewPagerFragment(), it.title.toString())
+                R.id.menu_lesson_1 -> startActivity(intent)
                 R.id.menu_lesson_2 -> replaceFragment(SecondFragment(), it.title.toString())
                 R.id.menu_lesson_3 -> replaceFragment(ThirdFragment(), it.title.toString())
             }
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment, title: String) {
+    fun replaceFragment(fragment: Fragment, title: String) {
         supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
         drawerLayout.closeDrawers()
         setTitle(title)
