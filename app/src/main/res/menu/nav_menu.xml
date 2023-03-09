@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/menu_lesson_1"
             android:icon="@drawable/baseline_text_snippet_24"
@@ -17,5 +19,7 @@
             android:id="@+id/menu_lesson_3"
             android:icon="@drawable/baseline_format_list_numbered_24"
             android:title="@string/lesson_3" />
+
+    </group>
 
 </menu>

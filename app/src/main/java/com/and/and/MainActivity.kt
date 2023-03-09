@@ -5,19 +5,19 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 
-class Activity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, ThirdFragment())
-//            .commit()
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
+        drawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
@@ -26,13 +26,21 @@ class Activity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         navView.setNavigationItemSelectedListener {
+            it.isChecked = true
+
             when (it.itemId) {
-                R.id.menu_lesson_1 -> TODO()
-                R.id.menu_lesson_2 -> TODO()
-                R.id.menu_lesson_3 -> TODO()
+                R.id.menu_lesson_1 -> replaceFragment(ViewPagerFragment(), it.title.toString())
+                R.id.menu_lesson_2 -> replaceFragment(SecondFragment(), it.title.toString())
+                R.id.menu_lesson_3 -> replaceFragment(ThirdFragment(), it.title.toString())
             }
             true
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment, title: String) {
+        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
+        drawerLayout.closeDrawers()
+        setTitle(title)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
