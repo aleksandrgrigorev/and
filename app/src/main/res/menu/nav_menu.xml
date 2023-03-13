@@ -20,6 +20,11 @@
             android:icon="@drawable/baseline_format_list_numbered_24"
             android:title="@string/lesson_3" />
 
+        <item
+            android:id="@+id/menu_task_2"
+            android:icon="@drawable/play"
+            android:title="@string/task_2" />
+
     </group>
 
 </menu>

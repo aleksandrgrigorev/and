@@ -28,18 +28,20 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             it.isChecked = true
-            val intent = Intent(this@MainActivity, ViewPagerActivity::class.java)
+            val intentLesson1 = Intent(this@MainActivity, ViewPagerActivity::class.java)
+            val intentTask2 = Intent(this@MainActivity, PlayerActivity::class.java)
 
             when (it.itemId) {
-                R.id.menu_lesson_1 -> startActivity(intent)
+                R.id.menu_lesson_1 -> startActivity(intentLesson1)
                 R.id.menu_lesson_2 -> replaceFragment(SecondFragment(), it.title.toString())
                 R.id.menu_lesson_3 -> replaceFragment(ThirdFragment(), it.title.toString())
+                R.id.menu_task_2 -> startActivity(intentTask2)
             }
             true
         }
     }
 
-    fun replaceFragment(fragment: Fragment, title: String) {
+    private fun replaceFragment(fragment: Fragment, title: String) {
         supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
         drawerLayout.closeDrawers()
         setTitle(title)
