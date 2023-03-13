@@ -9,4 +9,11 @@
     <string name="lesson_3">Lesson 3</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="play" />
+    <string name="stop" />
+    <string name="pause" />
+    <string name="songTitle">The One Ring to Rule Them All</string>
+    <string name="artistName">Sauron</string>
+    <string name="songGenre">psychedelic epic movie soundtrack</string>
+    <string name="task_2">Task 2</string>
 </resources>
